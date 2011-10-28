@@ -1,6 +1,64 @@
 /**
- * jQuery.ajax mid - CROSS DOMAIN AJAX 
+ * ----------------------------------------------------------------------------
+ * jQuery.xdomainrequest
+ * jQuery plugin for issue cross domain request with Yahoo Query Language
+ * ----------------------------------------------------------------------------
+ *
  * yatt/brainfs http://d.hatena.ne.jp/yatt/
+ *
+ *
+ *     this extension enables you to request resource belogns to external domain
+ * such as text, xml document, html document, json, and so on. if you specify
+ * $.ajax dataType as 'xdomain:*', then request is redirected to
+ * Yahoo Query Language API. using this extension, you can access resources
+ * in local domain and external domain tranceparently.
+ *     in addition, you can pass Array object to url parameter. extension handle
+ * requests as one batch process, allows you to cut off unnecessary network turn
+ * around and provides less API waste
+ *
+ * supported datatype ('xdomain:*') below:
+ *   - html
+ *   - xml
+ *   - json
+ *   - text
+ *   - zip (when jquery.zip at https://github.com/yatt/jquery.zip.inflate is
+ *          included then archive will be inflated)
+ *
+ * ********* REMARK
+ * YQL limits base64 encoded datasize less than or equal to 256kB so if you
+ * intend to access image. api may return fail response some time.
+ * 
+ * see yql detail: http://developer.yahoo.com/yql/
+ *
+ *
+ * sample)
+ *
+ *     $.ajax({
+ *         url: 'http://externalsite.com/resource.txt'
+ *         dataType: 'xdomain:text'
+ *         success: function(data){
+ *             console.log(data)
+ *         }
+ *     })
+ *     $.ajax({
+ *         url: ['http://externalsite.com/x.json', 'http://ex.jp/y.json']
+ *         dataType: 'xdomain:json'
+ *         success: function(data){
+ *             console.log(data[0].result.count) // x.json
+ *             console.log(data[1].user.id) // y.json
+ *         }
+ *     })
+ *
+ *     // if jquery.zip.inflate is included
+ *     $.ajax({
+ *         url: 'http://ex.com/x.zip'
+ *         dataType: 'xdomain:zip'
+ *         success: function(data){
+ *             console.log(data.files) // file names in zip archive
+ *             // get text content
+ *             console.log(data.files['tmp/hello.txt'].inflate())
+ *         }
+ *     })
  */
 
 jQuery.ajax = (function(_ajax){
