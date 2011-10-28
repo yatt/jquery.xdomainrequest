@@ -21,8 +21,9 @@
  *   - xml
  *   - json
  *   - text
- *   - zip (when jquery.zip at https://github.com/yatt/jquery.zip.inflate is
- *          included then archive will be inflated)
+ *   - zip (when jquery.zip.inflate 
+ *          at https://github.com/yatt/jquery.zip.inflate
+ *          is included then archive will be inflated)
  *
  * ********* REMARK
  * YQL limits base64 encoded datasize less than or equal to 256kB so if you
