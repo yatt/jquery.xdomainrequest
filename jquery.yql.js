@@ -124,7 +124,6 @@ jQuery.ajax = (function(_ajax){
                         })(fn)
 
                         var args = null
-console.log(data)
                         var resp = data.query.results.url
                         if (typeof resp == 'string')
                             args = proxy(resp)
