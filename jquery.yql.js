@@ -27,7 +27,8 @@
  *
  * ********* REMARK
  * YQL limits base64 encoded datasize less than or equal to 256kB so if you
- * intend to access image. api may return fail response some time.
+ * intend to access a bit large size resource, then API may return fail
+ * response some time.
  * 
  * see yql detail: http://developer.yahoo.com/yql/
  *
