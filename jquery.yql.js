@@ -7,6 +7,10 @@
  * yatt/brainfs http://d.hatena.ne.jp/yatt/
  *
  *
+ * this plugin requires jQuery.base64 plugin at
+ *  https://github.com/yatt/jquery.base64
+ *
+ *
  *     this extension enables you to request resource belogns to external domain
  * such as text, xml document, html document, json, and so on. if you specify
  * $.ajax dataType as 'xdomain:*', then request is redirected to
